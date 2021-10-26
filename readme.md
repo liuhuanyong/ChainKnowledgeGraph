@@ -8,45 +8,45 @@
 当前，为了进一步推动产业发展，本文围绕金融领域，推出面向上市公司的产业链图谱。  
   
 项目地址：
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/1.png)    
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/1.png)    
 # 一、项目构成  
 
 产业链知识图谱包括A股上市公司、行业和产品共3类实体，包括上市公司所属行业关系、行业上级关系、产品上游原材料关系、产品下游产品关系、公司主营产品、产品小类共6大类。      
  
 通过数据处理、抽取，最终建成图谱规模数十万，其中包括上市公司4,654家，行业511个，产品95,559条、上游材料56,824条，上级行业480条，下游产品390条，产品小类52,937条，所属行业3,946条。      
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/2.png)    
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/2.png)    
 
 #  二、项目构建
 1、实体构建  
 1）上市公司  
 目前上市公司已经达到四千多家，是我国重要的公司代表与行业标杆，本图谱选取上市公司作为基础实体之一。通过交易所公开信息中，可以得到上市公司代码、全称、简称、注册地址、挂牌等多个信息。    
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/3.png)    
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/3.png)    
 2）行业分类  
 行业是产业链图谱中另一个核心内容，也是承载产业、公司及产品的一个媒介，通过这一领携作用，可以生产出大量的行业指数、热点行业等指标。  
 目前关于行业，已经陆续出现多个行业规范，代表性的有申万三级行业分类、国民经济行业分类等。中国上市公司所属行业的分类准则是依据营业收入等财务数据为主要分类标准和依据，所采用财务数据为经过会计事务所审计并已公开披露的合并报表数据。  
 2021年6月，申万发布了2021版的行业分类规范，将1级行业从28个调整至31个、2级行业从104个调整至134个、3级行业从227个调整至346个，新增1级行业美容护理等，新增2级行业，并将上市公司进行了归属。本图谱选用申万行业作为基础数据。  
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/4.png)  
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/4.png)  
 3）业务产品    
 业务产品主要指公司主营范围、经营的产品，用于对一个公司的定位。可以从公司的经营范围、年报等文本中进行提取得到。  
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/5.png)   
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/5.png)   
 2、关系构建    
 1）公司所属行业    
 通过公开的上市公司行业分类表，可以得到上市公司所对应的行业分类数据。    
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/6.png)     
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/6.png)     
 2）行业上级关系    
 通过公开的行业三级分类情况，可以通过组合的形式得到行业之间的上级关系数据。    
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/7.png)
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/7.png)
 3）公司主营产品关系  
 上市公司的经营产品数据可以从两个方面来获得，一个是从公司简介中的经营范围中结合制定的规则进行提取，另一个是从公司每年发布的半年报、年报中进行提取。这些报告中会有按经营业务、经营产品、经营地域等几个角度对公司的营收占比进行统计，也可以通过制定规则的方式进行提取。第二种方法中，由于已经有统计数据，所以我们可以根据占比数据大小，对主营产品这一关系进行赋值。  
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/8.png)   
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/8.png)   
 4）产品之间的上下游关系  
 产品之间的上下游关系，是展示产品之间传导逻辑关系的一个重要方法，包括上游原材料以及下游产品两大类。我们可以多种来获取：  
 一种是基于规则模式匹配的方式进行抽取，如抽取上游原材料这一关系可以由诸如"a是b的原料/原材料/主要构件/重要原材料/  上游原料"的模式进行抽取"，而下游产品，则同理可以通过"A是B的下游成品/产品"等模式进行提取。  
 另一种是基于序列标注的提取。还有一种是基于现有结构化知识图谱的提取，例如已经结构化好的百科知识三元组，可以通过设定谓词及其扩展进行过滤。  
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/9.png)  
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/9.png)  
 5）产品之间的小类关系  
 对于一个产品而言，其是有大小层级分类的，在缺少大类产品名称的时候，可以通过计算小类产品来得到相应指标。与产品之间的上下游数据类似，可以通过启发式规则的方式进行提取，如“A是一种B”，也可以通过字符之间的组成成分进行匹配生成，如“螺纹钢”是“精细螺纹钢”的一个大类。  
-![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/master/img/10.png)  
+![image](https://github.com/liuhuanyong/ChainKnowledgeGraph/blob/main/img/10.png)  
 #  三、项目运行
 
 1、data文件夹下包括了本项目的数据信息：  
@@ -86,4 +86,4 @@ If any question about the project or me ,see https://liuhuanyong.github.io/
 3、about me:刘焕勇，lhy_in_blcu@126.com.         
 4、我的技术公众号:老刘说NLP,扫码一键关注：  
 
-![image](https://github.com/liuhuanyong/QABasedOnMedicalKnowledgeGraph/blob/master/img/wechat.jpg)
+![image](https://github.com/liuhuanyong/QABasedOnMedicalKnowledgeGraph/blob/main/img/wechat.jpg)
