@@ -86,4 +86,4 @@ If any question about the project or me ,see https://liuhuanyong.github.io/
 3、about me:刘焕勇，lhy_in_blcu@126.com.         
 4、我的技术公众号:老刘说NLP,扫码一键关注：  
 
-![image](https://github.com/liuhuanyong/QABasedOnMedicalKnowledgeGraph/blob/main/img/wechat.jpg)
+![image](https://github.com/liuhuanyong/QABasedOnMedicalKnowledgeGraph/blob/master/img/wechat.jpg)
